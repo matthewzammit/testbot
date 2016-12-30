@@ -98,9 +98,9 @@ function kittenMessage(recipientId, text) {
                     "subtitle": "Step into Rift. Whether you’re stepping into your favorite game, watching an immersive VR movie, jumping to a destination on the other side of the world, or just spending time with friends in VR, you’ll feel like you’re really there.",
                     "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
-                        "type": "Buy now",
+                        "type": "web_url",
                         "url": "https://www.amazon.co.uk/d/PC-Video-Games/Oculus-301-00204-01-Rift/B00ZFOGHRG/ref=sr_1_1?ie=UTF8&qid=1483140062&sr=8-1&keywords=rift",
-                        "title": "web url"
+                        "title": "Buy now"
                     }, {
                         "type": "postback",
                         "title": "Postback",
@@ -109,7 +109,7 @@ function kittenMessage(recipientId, text) {
                 }, {
                     "title": "Samsung Gear Gen 2 Virtual Reality",
                     "subtitle": "With the Gear VR you get a bigger field of view, smoother images. Low light leakage and reflection prevention. It's game on.",
-                    "image_url": "https://www.amazon.co.uk/Samsung-Gear-Gen-Virtual-Reality/dp/B01LX1LL6P/ref=sr_1_2?ie=UTF8&qid=1483140120&sr=8-2&keywords=gear+vr",
+                    "image_url": "https://images-na.ssl-images-amazon.com/images/I/5137IxTJdlL._SY355_.jpg",
                     "buttons": [{
                         "type": "postback",
                         "title": "Buy now",
