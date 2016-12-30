@@ -28,8 +28,8 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         if (event.message && event.message.text) {
 			if (event.message.text === 'Generic') {
-				sendGenericMessage(event.sender.id)
-				continue
+				sendGenericMessage(event.sender.id);
+				continue;
             }
 			
 			else if (!kittenMessage(event.sender.id, event.message.text)) {
