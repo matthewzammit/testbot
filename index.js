@@ -31,8 +31,10 @@ app.post('/webhook', function (req, res) {
 				sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 			}
 			if (event.message.text === 'Generic') {
-                sendGenericMessage(event.sender.id)
-                continue
+                sendMessage(event.sender.id, {text: "GENERIC FUNCTION CALL"});
+				
+				//sendGenericMessage(event.sender.id)
+                //continue
             }
         } else if (event.postback) {
                 console.log("Postback received: " + JSON.stringify(event.postback));
