@@ -31,7 +31,6 @@ app.post('/webhook', function (req, res) {
 				sendGenericMessage(event.sender.id);
 				//continue;
             }
-			
 			else if (!kittenMessage(event.sender.id, event.message.text)) {
 				sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 			}
@@ -62,7 +61,7 @@ function sendMessage(recipientId, message) {
         }
     });
 
-};
+}
 
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
@@ -83,12 +82,12 @@ function kittenMessage(recipientId, text) {
                         "elements": [{
                             "title": "Kitten",
                             "subtitle": "Cute kitten picture",
-                            "image_url": imageUrl ,
+                            "image_url": imageUrl,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": imageUrl,
                                 "title": "Show kitten"
-                                }, {
+                            }, {
                                 "type": "postback",
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
@@ -110,7 +109,7 @@ function kittenMessage(recipientId, text) {
 
 function sendGenericMessage(sender) {
 	
-	sendMessage(sender, {text: "GENERIC FUNCTION CALL"});	
+	sendMessage(sender, {text: "GENERIC FUNCTION CALL"});
 
 /*
 	messageData = {
@@ -187,4 +186,4 @@ function sendGenericMessage(sender) {
             console.log('Error: ', response.body.error)
         }
     })*/
-};
+}
