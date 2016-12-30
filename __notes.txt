@@ -1,0 +1,10 @@
+https://secure-bayou-43076.herokuapp.com/ | https://git.heroku.com/secure-bayou-43076.git
+
+EAAD5GG7GZAcMBAM0znnDYWbZAmpZAiPeAhVybQeQYGLYchYO5KUl0LqIibIG23XTEfeL3GZBX3uAUNbtxK0uETuXC2D51TC9mzeNMqeKAnhhwMv0Ish6LCfxVwkDGa5td6WiWDbaw0MWOMqvoIlD88HbkbZAMZCIHlZBbnwZBZAbRVwZDZD
+
+
+curl -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=EAAD5GG7GZAcMBAM0znnDYWbZAmpZAiPeAhVybQeQYGLYchYO5KUl0LqIibIG23XTEfeL3GZBX3uAUNbtxK0uETuXC2D51TC9mzeNMqeKAnhhwMv0Ish6LCfxVwkDGa5td6WiWDbaw0MWOMqvoIlD88HbkbZAMZCIHlZBbnwZBZAbRVwZDZD"
+
+$ git add .
+$ git commit -m 'Create Echo Bot'
+$ git push heroku master
