@@ -26,11 +26,9 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {
         var event = events[i];
-	if (event.message && event.message.text) {
-    		if (!kittenMessage(event.sender.id, event.message.text)) {
-        		sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-    		}
-	}
+        if (event.message && event.message.text) {
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+        }
     }
     res.sendStatus(200);
 });
@@ -52,6 +50,7 @@ function sendMessage(recipientId, message) {
             console.log('Error: ', response.body.error);
         }
     });
+<<<<<<< HEAD
 };
 
 // send rich message with kitten
@@ -60,7 +59,7 @@ function kittenMessage(recipientId, text) {
     text = text || "";
     var values = text.split(' ');
     
-    if (values.length === 3 && values[0].toUpperCase() === 'KITTEN' {
+    if (values.length === 3 && values[0].toUpperCase() === 'KITTENS') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
             
             var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
@@ -96,4 +95,6 @@ function kittenMessage(recipientId, text) {
     
     return false;
     
+=======
+>>>>>>> parent of 9a4487f... Kittens
 };
