@@ -24,17 +24,16 @@ app.get('/webhook', function (req, res) {
 // handler receiving messages
 app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
-    for (i = 0; i < events.length; i++) {
-		
+    for (i = 0; i < events.length; i++) {		
         var event = events[i];
         if (event.message && event.message.text) {
 			if (!kittenMessage(event.sender.id, event.message.text)) {
 				sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 			}
-			if (event.message.text === 'Generic') {
+			/*if (event.message.text === 'Generic') {
                 sendGenericMessage(event.sender.id)
                 continue
-            }
+            }*/
         } else if (event.postback) {
                 console.log("Postback received: " + JSON.stringify(event.postback));
             sendMessage(event.sender.id, {text: "I like this kitten too!"});
@@ -107,7 +106,7 @@ function kittenMessage(recipientId, text) {
 
 };
 
-function sendGenericMessage(sender) {
+/*function sendGenericMessage(sender) {
     messageData = {
         "attachment": {
             "type": "template",
@@ -154,4 +153,4 @@ function sendGenericMessage(sender) {
             console.log('Error: ', response.body.error)
         }
     })
-};
+};*/
