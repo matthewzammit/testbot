@@ -109,10 +109,10 @@ function kittenMessage(recipientId, text) {
                 }, {
                     "title": "Oculus Rift",
                     "subtitle": "Step into Rift. Whether you’re stepping into your favorite game, watching an immersive VR movie, jumping to a destination on the other side of the world, or just spending time with friends in VR, you’ll feel like you’re really there.",
-                   "image_url": "https://images-na.ssl-images-amazon.com/images/I/41iVakANl8L._SX425_.jpg",
+                   "image_url": "",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://www.amazon.co.uk/d/PC-Video-Games/Oculus-301-00204-01-Rift/B00ZFOGHRG/ref=sr_1_1",
+                        "url": "https://images-na.ssl-images-amazon.com/images/I/61ahfXnBa0L._SL1300_.jpg",
                         "title": "Buy now"
                     }, {
                         "type": "postback",
