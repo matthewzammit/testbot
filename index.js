@@ -29,8 +29,8 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
 			if (event.message.text === 'Generic') {
                 sendMessage(event.sender.id, {text: "GENERIC FUNCTION CALL"});	
-				sendGenericMessage(event.sender.id)
-                continue
+				sendGenericMessage(event.sender.id);
+                //continue;
             }
 			
 			else if (!kittenMessage(event.sender.id, event.message.text)) {
