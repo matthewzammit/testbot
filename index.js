@@ -28,8 +28,8 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         if (event.message && event.message.text) {
 			if (event.message.text === 'Generic') {
-                sendMessage(event.sender.id, {text: "GENERIC FUNCTION CALL"});	
-				//sendGenericMessage(event.sender.id);
+                //sendMessage(event.sender.id, {text: "GENERIC FUNCTION CALL"});	
+				sendGenericMessage(event.sender.id);
                 //continue;
             }
 			
@@ -110,7 +110,11 @@ function kittenMessage(recipientId, text) {
 }
 
 function sendGenericMessage(sender) {
-    messageData = {
+	
+	                sendMessage(sender, {text: "GENERIC FUNCTION CALL"});	
+
+	
+/*    messageData = {
         "attachment": {
             "type": "template",
             "payload": {
@@ -155,5 +159,5 @@ function sendGenericMessage(sender) {
         } else if (response.body.error) {
             console.log('Error: ', response.body.error)
         }
-    })
+    })*/
 };
