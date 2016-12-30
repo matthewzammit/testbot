@@ -50,7 +50,7 @@ function sendMessage(recipientId, message) {
             console.log('Error: ', response.body.error);
         }
     });
-<<<<<<< HEAD
+
 };
 
 // send rich message with kitten
@@ -61,7 +61,7 @@ function kittenMessage(recipientId, text) {
     
     if (values.length === 3 && values[0].toUpperCase() === 'KITTENS') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-            
+              
             var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
             
             message = {
@@ -95,6 +95,4 @@ function kittenMessage(recipientId, text) {
     
     return false;
     
-=======
->>>>>>> parent of 9a4487f... Kittens
 };
