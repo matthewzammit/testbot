@@ -118,7 +118,8 @@ function kittenMessage(recipientId, text) {
                         "type": "postback",
                         "title": "Postback",
                         "payload": "Oculus rift",
-                    }, {
+                    }], 
+				}, {
                     "title": "Philips Hue White and Colour Ambiance Wireless Lighting",
                     "subtitle": "Limitless possibilities - connected to you. Get started with the Philips Hue white and colour ambience starter kit and experience high quality white and coloured light that offers you endless possibilities. Play with light and choose from 16 million colours in the Hue app to match the light to your mood. The bulbs have been improved with deeper green, cyan and blue for even better scene setting in your home. Use a favourite photo and re-live that special moment with splashes of light. This Philips Hue bridge is compatible with Apple Home Kit technology. Ask Siri to turn on or dim your lights or recall pre-sets without touching a single button. Use a favourite photo and re-live that special moment with splashes of light. Save your favourite light settings and recall them whenever you want with the tap of a finger.",
                    "image_url": "https://images-na.ssl-images-amazon.com/images/I/71me8OodAxL._SL1500_.jpg",
