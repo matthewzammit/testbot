@@ -28,21 +28,17 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         if (event.message && event.message.text) {
 			if (event.message.text === 'Generic') {
-<<<<<<< HEAD
+                //sendMessage(event.sender.id, {text: "GENERIC FUNCTION CALL"});	
 				sendGenericMessage(event.sender.id);
-				//continue;
-=======
-                sendMessage(event.sender.id, {text: "GENERIC FUNCTION CALL"});	
-				//sendGenericMessage(event.sender.id);
                 //continue;
->>>>>>> parent of 3efa56e... card 10
             }
+			
 			else if (!kittenMessage(event.sender.id, event.message.text)) {
 				sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 			}
 			
         } else if (event.postback) {
-            console.log("Postback received: " + JSON.stringify(event.postback));
+                console.log("Postback received: " + JSON.stringify(event.postback));
             sendMessage(event.sender.id, {text: "I like this kitten too!"});
         }
     }
@@ -67,7 +63,7 @@ function sendMessage(recipientId, message) {
         }
     });
 
-}
+};
 
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
@@ -88,12 +84,12 @@ function kittenMessage(recipientId, text) {
                         "elements": [{
                             "title": "Kitten",
                             "subtitle": "Cute kitten picture",
-                            "image_url": imageUrl,
+                            "image_url": imageUrl ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": imageUrl,
                                 "title": "Show kitten"
-                            }, {
+                                }, {
                                 "type": "postback",
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
@@ -114,43 +110,11 @@ function kittenMessage(recipientId, text) {
 }
 
 function sendGenericMessage(sender) {
-<<<<<<< HEAD
 	
-	sendMessage(sender, {text: "GENERIC FUNCTION CALL"});
+	                sendMessage(sender, {text: "GENERIC FUNCTION CALL"});	
 
-/*
-	messageData = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                    "title": "First card",
-                    "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.messenger.com",
-                        "title": "web url"
-                    }, {
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for first element in a generic bubble",
-                    }],
-                }]
-            }
-        }
-    }
-    
-	sendMessage(recipientId, messageData);
-*/
-
-	
 	
 /*    messageData = {
-=======
-    messageData = {
->>>>>>> parent of 3efa56e... card 10
         "attachment": {
             "type": "template",
             "payload": {
@@ -195,10 +159,5 @@ function sendGenericMessage(sender) {
         } else if (response.body.error) {
             console.log('Error: ', response.body.error)
         }
-<<<<<<< HEAD
     })*/
-}
-=======
-    })
 };
->>>>>>> parent of 3efa56e... card 10
