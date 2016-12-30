@@ -17,7 +17,7 @@ app.get('/webhook', function (req, res) {
     if (req.query['hub.verify_token'] === 'testbot_verify_token') {
         res.send(req.query['hub.challenge']);
     } else {
-        res.send('Invalid verify token');
+    	res.send('Invalid verify token');
     }
 });
 
@@ -26,14 +26,14 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {
         var event = events[i];
- 		if (event.message && event.message.text) {
-    			if (!kittenMessage(event.sender.id, event.message.text)) {
-        			sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-    			}
-		} else if (event.postback) {
-    			console.log("Postback received: " + JSON.stringify(event.postback));
-			sendMessage(event.sender.id, {text: "I Like this kitten too!"});
-		}
+        if (event.message && event.message.text) {
+                if (!kittenMessage(event.sender.id, event.message.text)) {
+                    sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+                }
+        } else if (event.postback) {
+                console.log("Postback received: " + JSON.stringify(event.postback));
+            sendMessage(event.sender.id, {text: "I like this kitten too!"});
+        }
     }
     res.sendStatus(200);
 });
@@ -60,15 +60,15 @@ function sendMessage(recipientId, message) {
 
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
-    
+
     text = text || "";
     var values = text.split(' ');
-    
+
     if (values.length === 3 && values[0].toUpperCase() === 'KITTEN') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-            
+
             var imageUrl = "https://placekitten.com/g/" + Number(values[1]) + "/" + Number(values[2]);
-            
+
             message = {
                 "attachment": {
                     "type": "template",
@@ -91,13 +91,13 @@ function kittenMessage(recipientId, text) {
                     }
                 }
             };
-    
+
             sendMessage(recipientId, message);
-            
+
             return true;
         }
     }
-    
+
     return false;
-    
+
 };
