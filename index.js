@@ -94,12 +94,12 @@ function kittenMessage(recipientId, text) {
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
                             }]
                         }, {
-                    "title": "First card",
-                    "subtitle": "Element #1 of an hscroll",
+                    "title": "Oculus rift",
+                    "subtitle": "Step into Rift. Whether you’re stepping into your favorite game, watching an immersive VR movie, jumping to a destination on the other side of the world, or just spending time with friends in VR, you’ll feel like you’re really there.",
                     "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.messenger.com",
+                        "type": "Buy now",
+                        "url": "https://www.amazon.co.uk/d/PC-Video-Games/Oculus-301-00204-01-Rift/B00ZFOGHRG/ref=sr_1_1?ie=UTF8&qid=1483140062&sr=8-1&keywords=rift",
                         "title": "web url"
                     }, {
                         "type": "postback",
@@ -107,12 +107,12 @@ function kittenMessage(recipientId, text) {
                         "payload": "Payload for first element in a generic bubble",
                     }],
                 }, {
-                    "title": "Second card",
-                    "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+                    "title": "Samsung Gear Gen 2 Virtual Reality",
+                    "subtitle": "With the Gear VR you get a bigger field of view, smoother images. Low light leakage and reflection prevention. It's game on.",
+                    "image_url": "https://www.amazon.co.uk/Samsung-Gear-Gen-Virtual-Reality/dp/B01LX1LL6P/ref=sr_1_2?ie=UTF8&qid=1483140120&sr=8-2&keywords=gear+vr",
                     "buttons": [{
                         "type": "postback",
-                        "title": "Postback",
+                        "title": "Buy now",
                         "payload": "Payload for second element in a generic bubble",
                     }],
                 }]
