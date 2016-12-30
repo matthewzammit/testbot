@@ -59,7 +59,7 @@ function kittenMessage(recipientId, text) {
     text = text || "";
     var values = text.split(' ');
     
-    if (values.length === 3 && (values[0] === 'Kittens' || values[0] === 'kittens')) {
+    if (values.length === 3 && values[0] === 'kittens') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
               
             var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
