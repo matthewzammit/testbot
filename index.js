@@ -28,8 +28,14 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         if (event.message && event.message.text) {
 			if (event.message.text === 'Generic') {
+<<<<<<< HEAD
 				sendGenericMessage(event.sender.id);
 				//continue;
+=======
+                sendMessage(event.sender.id, {text: "GENERIC FUNCTION CALL"});	
+				//sendGenericMessage(event.sender.id);
+                //continue;
+>>>>>>> parent of 3efa56e... card 10
             }
 			else if (!kittenMessage(event.sender.id, event.message.text)) {
 				sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
@@ -108,6 +114,7 @@ function kittenMessage(recipientId, text) {
 }
 
 function sendGenericMessage(sender) {
+<<<<<<< HEAD
 	
 	sendMessage(sender, {text: "GENERIC FUNCTION CALL"});
 
@@ -141,6 +148,9 @@ function sendGenericMessage(sender) {
 	
 	
 /*    messageData = {
+=======
+    messageData = {
+>>>>>>> parent of 3efa56e... card 10
         "attachment": {
             "type": "template",
             "payload": {
@@ -185,5 +195,10 @@ function sendGenericMessage(sender) {
         } else if (response.body.error) {
             console.log('Error: ', response.body.error)
         }
+<<<<<<< HEAD
     })*/
 }
+=======
+    })
+};
+>>>>>>> parent of 3efa56e... card 10
