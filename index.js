@@ -26,8 +26,8 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {		
         var event = events[i];
-        var text = event.message.text || "";  /// problem here
-		var values = text.split(' ');
+        var text1 = event.message.text || "";  /// problem here
+		var values = text1.split(' ');
 		
 		if (event.message && event.message.text) {
 			if (event.message.text.toUpperCase() === 'GENERIC') {
