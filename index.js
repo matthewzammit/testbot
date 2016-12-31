@@ -40,8 +40,6 @@ app.post('/webhook', function (req, res) {
 				
 
 					if (values[0].toUpperCase() === 'KITTEN'){
-					sendMessage(event.sender.id, {text: "STEP 3: entered" });
-
 					kittenMessage(event.sender.id, event.message.text)
 					continue;	
 				}
