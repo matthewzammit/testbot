@@ -40,8 +40,8 @@ app.post('/webhook', function (req, res) {
 				continue;	
 			}  			
 			else {
-			sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-		}
+				sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+			}
 		}
 		
 		else if (event.postback) {
