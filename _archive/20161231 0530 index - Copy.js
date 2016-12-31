@@ -26,26 +26,44 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {		
         var event = events[i];
-        if (event.message && event.message.text) {
-			if (event.message.text === 'Generic') {
+        var text = event.message.text || "";
+		var values = text.split(' ');
+		
+		
+		if (event.message && event.message.text) {
+			if (event.message.text.toUpperCase() === 'GENERIC') {
 				sendGenericMessage(event.sender.id);
-                //continue;
+                continue;
             }			
 
-			else if (values.length === 3 && values[0].toUpperCase() === 'KITTEN'){
-				kittenMessage(event.sender.id, event.message.text);
+			else if (values.length === 3){
+				
+			//	text = text || "";
+				sendMessage(event.sender.id, {text: "STEP 1: " + text});
+			
+		//		var values = text.split(' ');
+				sendMessage(event.sender.id, {text: "STEP 2: " + values[0] });
+
+				if (values[0].toUpperCase() === 'KITTEN'){
+					sendMessage(event.sender.id, {text: "STEP 3: entered" });
+
+					kittenMessage(event.sender.id, event.message.text)
+					continue;	
+				}
+			}  			
+			/*	else if (!kittenMessage(event.sender.id, event.message.text)) {
+				continue;
 			}
-			/*			else if (!kittenMessage(event.sender.id, event.message.text)) {
-				sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-			}
-			*/
-        } else if (event.postback) {
+		*/	
+         else if (event.postback) {
                 console.log("Postback received: " + JSON.stringify(event.postback));
             sendMessage(event.sender.id, {text: "I like this kitten too!"});
-        } else {
-			sendMessage(event.sender.id, {text: "Echo: " + event.message.text}); //Echo back
+        } 
+			else {
+			sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 		}
     }
+	}
     res.sendStatus(200);
 });
 
@@ -68,63 +86,13 @@ function sendMessage(recipientId, message) {
     });
 };
 
-
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
 
     text = text || "";
     var values = text.split(' ');
-sendMessage(event.sender.id, {text: "Echo: " + text}); //Echo back
-        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
 
-            var imageUrl = "https://placekitten.com/g/" + Number(values[1]) + "/" + Number(values[2]);
-
-            message = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": [{
-                            "title": "Kitten",
-                            "subtitle": "Cute kitten picture",
-                            "image_url": imageUrl ,
-                            "buttons": [{
-                                "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show kitten"
-                                }, 
-										{
-                                "type": "postback",
-                                "title": "I like this",
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            }]
-                        }]
-            }
-        }
-    }
-            sendMessage(recipientId, message);
-
-      //      return true;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-// send rich message with kitten
-/*
-function kittenMessage(recipientId, text) {
-
-    text = text || "";
-    var values = text.split(' ');
-
-    if (values.length === 3 && values[0].toUpperCase() === 'KITTEN') {
+  // if (values.length === 3 && values[0].toUpperCase() === 'KITTEN') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
 
             var imageUrl = "https://placekitten.com/g/" + Number(values[1]) + "/" + Number(values[2]);
@@ -147,7 +115,26 @@ function kittenMessage(recipientId, text) {
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
                             }]
-                        }, {
+                        }]
+            }
+        }
+   }
+            sendMessage(recipientId, message);
+        }
+			
+//}
+};
+
+function sendGenericMessage(sender) {
+	
+	 sendMessage(sender, {text: "Here are some items to buy"});	
+
+	 messageData = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
                     "title": "Amazon Echo, Black",
                     "subtitle": "Step into Rift. Whether you’re stepping into your favorite game, watching an immersive VR movie, jumping to a destination on the other side of the world, or just spending time with friAmazon Echo is a hands-free speaker you control with your voice. Echo connects to the Alexa Voice Service to play music, provide information, news, sports scores, weather and more. Prime members can also ask Alexa to order eligible products they've ordered before and many Prime products. All you have to do is ask.",
                     "image_url": "https://images-na.ssl-images-amazon.com/images/I/61aN%2BSE-F9L._SL1000_.jpg",
@@ -190,19 +177,6 @@ function kittenMessage(recipientId, text) {
             }
         }
     }
+            sendMessage(sender, messageData);
 
-
-            sendMessage(recipientId, message);
-
-            return true;
-        }
-    }
-
-    return false;
-
-}
-*/
-
-function sendGenericMessage(sender) {
-	sendMessage(sender, {text: "GENERIC FUNCTION CALL"});	
 };
