@@ -31,14 +31,24 @@ app.post('/webhook', function (req, res) {
 				sendGenericMessage(event.sender.id);
                 continue;
             }			
-			else if (!kittenMessage(event.sender.id, event.message.text)) {
-				sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+			else if (events.length === 3){
+				text = text || "";
+				var values = text.split(' ');
+				if (values[0].toUpperCase() === 'KITTEN'){
+					kittenMessage(event.sender.id, event.message.text)
+					continue;	
+				}
+			}  			
+			/*	else if (!kittenMessage(event.sender.id, event.message.text)) {
+				continue;
 			}
-			
+		*/	
         } else if (event.postback) {
                 console.log("Postback received: " + JSON.stringify(event.postback));
             sendMessage(event.sender.id, {text: "I like this kitten too!"});
-        }
+        } else {
+			sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+		}
     }
     res.sendStatus(200);
 });
@@ -96,20 +106,14 @@ function kittenMessage(recipientId, text) {
         }
     }
 
-
             sendMessage(recipientId, message);
-
-            return true;
         }
-    }
-
-    return false;
-
+}
 }
 
 function sendGenericMessage(sender) {
 	
-	                sendMessage(sender, {text: "GENERIC FUNCTION CALL"});	
+	 sendMessage(sender, {text: "Here are some items to buy"});	
 
 	 messageData = {
                 "attachment": {
@@ -159,8 +163,6 @@ function sendGenericMessage(sender) {
             }
         }
     }
-
-
             sendMessage(sender, messageData);
 
 };
