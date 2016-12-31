@@ -149,11 +149,6 @@ function kittenMessage(recipientId, text) {
     }
 
 
-    //return false;
-
-}
-
-
 
 
 
