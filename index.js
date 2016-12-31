@@ -43,13 +43,14 @@ app.post('/webhook', function (req, res) {
 				continue;
 			}
 		*/	
-        } else if (event.postback) {
+         else if (event.postback) {
                 console.log("Postback received: " + JSON.stringify(event.postback));
             sendMessage(event.sender.id, {text: "I like this kitten too!"});
         } else {
 			sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 		}
     }
+	}
     res.sendStatus(200);
 });
 
@@ -105,7 +106,6 @@ function kittenMessage(recipientId, text) {
             }
         }
     }
-
             sendMessage(recipientId, message);
         }
 }
