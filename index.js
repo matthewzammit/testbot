@@ -37,14 +37,24 @@ app.post('/webhook', function (req, res) {
             }			
 
 			else if (values.length === 3){
+				
+			//	text = text || "";
+				sendMessage(event.sender.id, {text: "STEP 1: " + text});
+			
+		//		var values = text.split(' ');
+				sendMessage(event.sender.id, {text: "STEP 2: " + values[0] });
 
 				if (values[0].toUpperCase() === 'KITTEN'){
+					sendMessage(event.sender.id, {text: "STEP 3: entered" });
 
 					kittenMessage(event.sender.id, event.message.text)
 					continue;	
 				}
 			}  			
-
+			/*	else if (!kittenMessage(event.sender.id, event.message.text)) {
+				continue;
+			}
+		*/	
          else if (event.postback) {
                 console.log("Postback received: " + JSON.stringify(event.postback));
             sendMessage(event.sender.id, {text: "I like this kitten too!"});
@@ -95,7 +105,6 @@ function receivedPostback(event) {
   // let them know it was successful
   sendTextMessage(senderID, "Postback called");
 }
-
 
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
