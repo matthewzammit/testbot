@@ -35,7 +35,7 @@ app.post('/webhook', function (req, res) {
                 continue;
             }			
 
-			else if (values.length === 3 && values[0].toUpperCase() === 'KITTEN' && Number(values[1]) > 0 && Number(values[2]) > 0)){
+			else if (values.length === 3 && values[0].toUpperCase() === 'KITTEN' && Number(values[1]) > 0 && Number(values[2]) > 0){
 				kittenMessage(event.sender.id, event.message.text)
 				continue;	
 			}  			
@@ -98,7 +98,7 @@ function kittenMessage(recipientId, text) {
     var values = text1.split(' ');
 
   // if (values.length === 3 && values[0].toUpperCase() === 'KITTEN') {
-        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
+   //     if (Number(values[1]) > 0 && Number(values[2]) > 0) {
 
             var imageUrl = "https://placekitten.com/g/" + Number(values[1]) + "/" + Number(values[2]);
 
@@ -125,7 +125,7 @@ function kittenMessage(recipientId, text) {
         }
    }
             sendMessage(recipientId, message);
-        }
+  //      }
 			
 //}
 };
