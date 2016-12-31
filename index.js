@@ -26,7 +26,7 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {		
         var event = events[i];
-        var text = event.message.text || "";
+        var text = event.message.text || "";  /// problem here
 		var values = text.split(' ');
 		
 		if (event.message && event.message.text) {
@@ -35,17 +35,13 @@ app.post('/webhook', function (req, res) {
                 continue;
             }			
 
-			else if (values.length === 3){
-				
-
-					if (values[0].toUpperCase() === 'KITTEN'){
-					kittenMessage(event.sender.id, event.message.text)
-					continue;	
-				}
+			else if (values.length === 3 && values[0].toUpperCase() === 'KITTEN'){
+				kittenMessage(event.sender.id, event.message.text)
+				continue;	
 			}  			
 			
          else if (event.postback) {
-                console.log("Postback received: " + JSON.stringify(event.postback));
+            console.log("Postback received: " + JSON.stringify(event.postback));
             sendMessage(event.sender.id, {text: "I like this kitten too!"});
 			// receivedPostback(messagingEvent); 
         } 
