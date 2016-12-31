@@ -61,7 +61,6 @@ function sendMessage(recipientId, message) {
             console.log('Error: ', response.body.error);
         }
     });
-
 };
 
 // send rich message with kitten
