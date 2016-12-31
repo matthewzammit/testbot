@@ -161,6 +161,6 @@ function sendGenericMessage(sender) {
     }
 
 
-            sendMessage(recipientId, messageData);
+            sendMessage(sender, messageData);
 
 };
