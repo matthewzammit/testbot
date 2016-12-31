@@ -35,20 +35,21 @@ app.post('/webhook', function (req, res) {
                 continue;
 			}
 			else if (values.length === 3 && values[0].toUpperCase() === 'KITTEN' && Number(values[1]) > 0 && Number(values[2]) > 0){
-				
 				console.log("kitten shown");
-				kittenMessage(event.sender.id, event.message.text)
+				kittenMessage(event.sender.id, event.message.text);
 				continue;	
 			}  			
-			
-         else if (event.postback) {
-            console.log("Postback received: " + JSON.stringify(event.postback));
-            sendMessage(event.sender.id, {text: "I like this kitten too!"});
-			// receivedPostback(messagingEvent); 
-        } 
 			else {
 			sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 		}
+		}
+		
+		else if (event.postback) {
+			console.log("Postback received: " + JSON.stringify(event.postback));
+			sendMessage(event.sender.id, {text: "I like this kitten too!"});
+			// receivedPostback(messagingEvent); 
+		} 
+
     }
 	}
     res.sendStatus(200);
