@@ -33,10 +33,10 @@ app.post('/webhook', function (req, res) {
 			if (event.message.text.toUpperCase() === 'GENERIC') {
 				sendGenericMessage(event.sender.id);
                 continue;
-            }			
-
+			}
 			else if (values.length === 3 && values[0].toUpperCase() === 'KITTEN' && Number(values[1]) > 0 && Number(values[2]) > 0){
 				kittenMessage(event.sender.id, event.message.text)
+				console.log("kitten shown");
 				continue;	
 			}  			
 			
@@ -97,9 +97,6 @@ function kittenMessage(recipientId, text) {
     var text1 = text || "";
     var values = text1.split(' ');
 
-  // if (values.length === 3 && values[0].toUpperCase() === 'KITTEN') {
-   //     if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-
             var imageUrl = "https://placekitten.com/g/" + Number(values[1]) + "/" + Number(values[2]);
 
             message = {
@@ -125,9 +122,6 @@ function kittenMessage(recipientId, text) {
         }
    }
             sendMessage(recipientId, message);
-  //      }
-			
-//}
 };
 
 function sendGenericMessage(sender) {
