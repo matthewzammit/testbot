@@ -58,7 +58,8 @@ app.post('/webhook', function (req, res) {
          else if (event.postback) {
                 console.log("Postback received: " + JSON.stringify(event.postback));
             sendMessage(event.sender.id, {text: "I like this kitten too!"});
-        } else {
+        } 
+			else {
 			sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 		}
     }
@@ -91,7 +92,7 @@ function kittenMessage(recipientId, text) {
     text = text || "";
     var values = text.split(' ');
 
-  //  if (values.length === 3 && values[0].toUpperCase() === 'KITTEN') {
+   if (values.length === 3 && values[0].toUpperCase() === 'KITTEN') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
 
             var imageUrl = "https://placekitten.com/g/" + Number(values[1]) + "/" + Number(values[2]);
@@ -117,7 +118,7 @@ function kittenMessage(recipientId, text) {
                         }]
             }
         }
- //  }
+   }
             sendMessage(recipientId, message);
         }
 			
