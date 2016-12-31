@@ -26,7 +26,7 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {		
         var event = events[i];
-        text = text || "";
+        text = event.message.text || "";
 		var values = text.split(' ');
 		
 		
