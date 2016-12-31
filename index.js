@@ -91,7 +91,32 @@ function kittenMessage(recipientId, text) {
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
                             }]
-                        }, {
+                        }]
+            }
+        }
+    }
+
+
+            sendMessage(recipientId, message);
+
+            return true;
+        }
+    }
+
+    return false;
+
+}
+
+function sendGenericMessage(sender) {
+	
+	                sendMessage(sender, {text: "GENERIC FUNCTION CALL"});	
+
+	 messageData = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
                     "title": "Amazon Echo, Black",
                     "subtitle": "Step into Rift. Whether you’re stepping into your favorite game, watching an immersive VR movie, jumping to a destination on the other side of the world, or just spending time with friAmazon Echo is a hands-free speaker you control with your voice. Echo connects to the Alexa Voice Service to play music, provide information, news, sports scores, weather and more. Prime members can also ask Alexa to order eligible products they've ordered before and many Prime products. All you have to do is ask.",
                     "image_url": "https://images-na.ssl-images-amazon.com/images/I/61aN%2BSE-F9L._SL1000_.jpg",
@@ -136,65 +161,6 @@ function kittenMessage(recipientId, text) {
     }
 
 
-            sendMessage(recipientId, message);
+            sendMessage(recipientId, messageData);
 
-            return true;
-        }
-    }
-
-    return false;
-
-}
-
-function sendGenericMessage(sender) {
-	
-	                sendMessage(sender, {text: "GENERIC FUNCTION CALL"});	
-
-	
-/*    messageData = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                    "title": "First card",
-                    "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.messenger.com",
-                        "title": "web url"
-                    }, {
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for first element in a generic bubble",
-                    }],
-                }, {
-                    "title": "Second card",
-                    "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
-                    }],
-                }]
-            }
-        }
-    }
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:token},
-        method: 'POST',
-        json: {
-            recipient: {id:sender},
-            message: messageData,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    })*/
 };
