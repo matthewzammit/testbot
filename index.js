@@ -34,8 +34,8 @@ app.post('/webhook', function (req, res) {
     	//var values = text.split(' ');
 		
 		sendMessage(event.sender.id, {text: "0: " + values[0]});
-		sendMessage(event.sender.id, {text: "0: " + values[1]});
-		sendMessage(event.sender.id, {text: "0: " + values[2]});
+		sendMessage(event.sender.id, {text: "1: " + values[1]});
+		sendMessage(event.sender.id, {text: "2: " + values[2]});
 			
 		
 		if (event.message && event.message.text) {
