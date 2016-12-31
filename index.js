@@ -35,8 +35,9 @@ app.post('/webhook', function (req, res) {
                 continue;
 			}
 			else if (values.length === 3 && values[0].toUpperCase() === 'KITTEN' && Number(values[1]) > 0 && Number(values[2]) > 0){
-				kittenMessage(event.sender.id, event.message.text)
+				
 				console.log("kitten shown");
+				kittenMessage(event.sender.id, event.message.text)
 				continue;	
 			}  			
 			
