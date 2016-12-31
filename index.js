@@ -29,7 +29,6 @@ app.post('/webhook', function (req, res) {
         var text = event.message.text || "";
 		var values = text.split(' ');
 		
-		
 		if (event.message && event.message.text) {
 			if (event.message.text.toUpperCase() === 'GENERIC') {
 				sendGenericMessage(event.sender.id);
@@ -99,8 +98,8 @@ function receivedPostback(event) {
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
 
-    text = text || "";
-    var values = text.split(' ');
+    var text1 = text || "";
+    var values = text1.split(' ');
 
   // if (values.length === 3 && values[0].toUpperCase() === 'KITTEN') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
