@@ -26,17 +26,22 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {		
         var event = events[i];
-        if (event.message && event.message.text) {
+        text = text || "";
+		var values = text.split(' ');
+		
+		
+		if (event.message && event.message.text) {
 			if (event.message.text.toUpperCase() === 'GENERIC') {
 				sendGenericMessage(event.sender.id);
                 continue;
             }			
-			else if (events.length === 3){
+
+			else if (values.length === 3){
 				
-				text = text || "";
+			//	text = text || "";
 				sendMessage(event.sender.id, {text: "STEP 1: " + text});
 			
-				var values = text.split(' ');
+		//		var values = text.split(' ');
 				sendMessage(event.sender.id, {text: "STEP 2: " + values[0] });
 
 				if (values[0].toUpperCase() === 'KITTEN'){
