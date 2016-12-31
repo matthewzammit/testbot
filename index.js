@@ -47,7 +47,7 @@ app.post('/webhook', function (req, res) {
 		else if (event.postback) {
 			console.log("Postback received: " + JSON.stringify(event.postback));
 			sendMessage(event.sender.id, {text: "I like this kitten too!"});
-			// receivedPostback(messagingEvent); 
+			receivedPostback(messagingEvent); 
 		} 
 
     }
